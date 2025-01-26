@@ -140,7 +140,7 @@ Coupon Code: ${formData.couponCode || 'N/A'}
   };
 
   return (
-    <Box bg="rgba(49, 17, 100, 0.75)" minH="100vh" py={20}>
+    <Box bg="rgba(49, 17, 100, 0.75)" minH="100vh" py={20} mt={{base: "100px", md: "120px"}}>
       <Container maxW="container.xl">
         <Box
           w="100%"

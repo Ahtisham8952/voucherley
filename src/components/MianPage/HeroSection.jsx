@@ -22,6 +22,7 @@ const HeroSection = () => {
       bgSize="cover"
       bgPosition="center"
       bgRepeat="no-repeat"
+      className="hero-section"
       _before={{
         content: '""',
         position: "absolute",
@@ -59,7 +60,7 @@ const HeroSection = () => {
               overflow="hidden"
               textShadow="2px 2px 4px rgba(0, 0, 0, 0.7)"
               lineHeight={{ base: "1.2", md: "1.4" }}
-              textAlign={{ base: "center", md: "left" }}
+              textAlign={{ base: "center", md: "center" }}
             >
               Certification Goals for Less! Discounts & Vouchers!
             </Text>

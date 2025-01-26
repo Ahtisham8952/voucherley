@@ -1,111 +1,132 @@
-import { Badge, Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Badge, Box, Flex, Image, Text, HStack } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from 'react-router-dom';
-import UserMenu from "./UserMenu";
-import { useDisplayUser } from "../../context/UserContextProvider";
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { openDrawer } from "../../features/Auth/drawerSlice";
 
-const MainMenuList = ({ onMenuLinkClick }) => {
+const MainMenuList = () => {
   const location = useLocation();
   const handleClick = () => {
-    if (onMenuLinkClick) {
-      onMenuLinkClick();
-    }
+    // Handle click if needed
   };
-  const { user, setUser } = useDisplayUser();
-  const items = useSelector((state) => state.cart);
 
-  const linkStyles = (path) => ({
-    textDecoration: "none",
-    opacity: location.pathname === path ? "1" : "80%",
-    color: location.pathname === path ? "#DD490A" : "#F0FCFB", // Change colors as needed
-  });
+  
+  const items = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   return (
     <Flex
-      minWidth="max-content"
-      justifyContent="space-between"
       alignItems="center"
-      flexDirection={{ base: "column", lg: "row" }}
-      gap={{ base: "25px", lg: "none" }}
-      maxW={{ base: "100%", lg: "390px", xl: "531px" }}
-      w="100%"
-      ml="auto"
-      color="#F0FCFB"
-      fontSize={{ base: "18px", lg: "14px", xl: "18px" }}
-      lineHeight="27px"
-      fontWeight="600"
+      gap={{base: "20px", md: "40px"}}
+      fontSize="14px"
+      fontWeight="500"
       letterSpacing="0.04em"
       textTransform="uppercase"
     >
-      <Link onClick={handleClick} to="/" style={linkStyles("/")}>
-       Home
-      </Link> 
-      <Link onClick={handleClick} to="/products" style={linkStyles("/products")}>
-        Products
-      </Link>
-      {/* <Link  onClick={handleClick} to="/login" style={linkStyles("/login")}>
-        Login
-      </Link>
-      <Link onClick={handleClick} to="/signup" style={linkStyles("/signup")}>
-        Signup
-      </Link> */}
-      {/* <Flex alignItems={"center"} gap="5px">
-        <Image w="25px" h="25px" borderRadius={"50%"} src={user.avatar || '/profileicon.svg'} />
-       
-        <Link onClick={handleClick} to="/profile" style={linkStyles("/profile")}>
-        {user ? user.fullName : 'Profile'}
-        </Link>
+      <HStack 
+        spacing={{base: '10px', md: '15px'}}
+        alignItems="center"
+        justifyContent="center"
+      >
+        <NavLink to="/" end>
+          {({ isActive }) => (
+            <Box
+              p={{base: "10px 30px", md: "14px 46px"}}
+              bg={isActive ? '#FFFFFF' : 'transparent'}
+              color={isActive ? '#7D31EA' : 'rgba(255, 255, 255, 0.65)'}
+              borderRadius="50px"
+              fontSize={{base: "14px", md: "16px"}}
+              transition="all 0.3s ease"
+              _hover={{
+                bg: 'rgba(255, 255, 255, 0.1)',
+                color: 'rgba(255, 255, 255, 0.8)'
+              }}
+              onClick={handleClick}
+            >
+              Home
+            </Box>
+          )}
+        </NavLink>
 
-      </Flex> */}
-      <Link onClick={handleClick} to="/contact" style={linkStyles("/contact")}>
-        Contact 
-      </Link> 
-      
+        <NavLink to="/products">
+          {({ isActive }) => (
+            <Box
+              p={{base: "10px 30px", md: "14px 46px"}}
+              bg={isActive ? '#FFFFFF' : 'transparent'}
+              color={isActive ? '#7D31EA' : 'rgba(255, 255, 255, 0.65)'}
+              borderRadius="50px"
+              fontSize={{base: "14px", md: "16px"}}
+              transition="all 0.3s ease"
+              _hover={{
+                bg: 'rgba(255, 255, 255, 0.1)',
+                color: 'rgba(255, 255, 255, 0.8)'
+              }}
+              onClick={handleClick}
+            >
+              Products
+            </Box>
+          )}
+        </NavLink>
+
+        <NavLink to="/contact">
+          {({ isActive }) => (
+            <Box
+              p={{base: "10px 30px", md: "14px 46px"}}
+              bg={isActive ? '#FFFFFF' : 'transparent'}
+              color={isActive ? '#7D31EA' : 'rgba(255, 255, 255, 0.65)'}
+              borderRadius="50px"
+              fontSize={{base: "14px", md: "16px"}}
+              transition="all 0.3s ease"
+              _hover={{
+                bg: 'rgba(255, 255, 255, 0.1)',
+                color: 'rgba(255, 255, 255, 0.8)'
+              }}
+              onClick={handleClick}
+            >
+              Contact
+            </Box>
+          )}
+        </NavLink>
+      </HStack>
 
       <Flex
         minWidth="max-content"
-        justifyContent="flex-end"
         alignItems="center"
-        minH="64px"
-        gap="42px"
+        gap="2"
       >
-        <Link
+        <Box
+          display={"flex"}
+          alignItems={"center"}
+          gap="10px"
+          cursor="pointer"
           onClick={() => dispatch(openDrawer())}
-          display="flex"
-          gap="16px"
-          color="white"
-          bg="transparent"
-          fontSize="14px"
-        // Assuming you want to style this link similarly
         >
-          <Box display={"flex"} alignItems={"center"} gap="10px">
-            <Box position="relative">
-              <Image src="/cart-icon.svg" alt="icon" />
-              <Badge
-                borderRadius="50%"
-                height="21px"
-                width="21px"
-                bg="#DD490A"
-                border="1px solid #B13906"
-                color="#fff"
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                position="absolute"
-                top="-8px"
-                right="-8px"
-              >
-                {items.length}
-              </Badge>
-            </Box>
-            <Link >
-        Cart
-      </Link>
+          <Box position="relative">
+            <Image
+              src="/cart-icon.svg"
+              alt="cart"
+              w="24px"
+              h="24px"
+              cursor="pointer"
+            />
+            <Badge
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              position="absolute"
+              top="-8px"
+              right="-8px"
+              w="18px"
+              h="18px"
+              bg="#DD490A"
+              color="white"
+              borderRadius="full"
+            >
+              {items.length}
+            </Badge>
           </Box>
-        </Link>
+          <Text color="white">Cart</Text>
+        </Box>
       </Flex>
     </Flex>
   );

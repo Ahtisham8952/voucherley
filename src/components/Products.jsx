@@ -517,207 +517,209 @@ const Products = () => {
   };
 
   return (
-    <Tabs variant="soft-rounded" colorScheme="blue" mt="40px" mx='20px'>
-      <TabList 
-        flexDirection={{base: 'column', md: 'row'}}
-        flexWrap={{md: 'wrap'}}
-        gap={{base: '10px', md: '15px'}}
-        p={{base: '16px', md: '20px 32px'}} 
-        mx={"auto"} 
-        justifyContent={{base: 'center', md: 'center'}} 
-        alignItems="center"
-        borderBottom={"none"} 
-        bg="rgba(49, 17, 100, 0.75)" 
-        maxW={"1500px"} 
-        borderRadius={{base:'25px', md:'50px'}}
-      >
-        <Tab
-          p={{base: "10px 30px", md: "14px 46px"}}
-          bg="transparent"
-          color="rgba(255, 255, 255, 0.65)"
-          borderRadius="50px"
-          _selected={{ bg: '#FFFFFF', color: '#7D31EA' }}
-          _focus={{ outline: 'none' }} 
-          _focusVisible={{ outline: 'none' }}
-          fontSize={{base: "14px", md: "16px"}}
+    <Box mt={{base: "100px", md: "120px"}}>
+      <Tabs variant="soft-rounded" colorScheme="blue" mx='20px'>
+        <TabList 
+          flexDirection={{base: 'column', md: 'row'}}
+          flexWrap={{md: 'wrap'}}
+          gap={{base: '10px', md: '15px'}}
+          p={{base: '16px', md: '20px 32px'}} 
+          mx={"auto"} 
+          justifyContent={{base: 'center', md: 'center'}} 
+          alignItems="center"
+          borderBottom={"none"} 
+          bg="rgba(49, 17, 100, 0.75)" 
+          maxW={"1500px"} 
+          borderRadius={{base:'25px', md:'50px'}}
         >
-          CompTIA
-        </Tab>
-        <Tab 
-          p={{base: "10px 30px", md: "14px 46px"}} 
-          bg="transparent" 
-          color="rgba(255, 255, 255, 0.65)" 
-          borderRadius={"50px"} 
-          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
-          _focus={{ outline: 'none' }} 
-          _focusVisible={{ outline: 'none' }}
-          fontSize={{base: "14px", md: "16px"}}
-        >
-          ISC2
-        </Tab>
-        <Tab 
-          p={{base: "10px 30px", md: "14px 46px"}} 
-          bg="transparent" 
-          color="rgba(255, 255, 255, 0.65)" 
-          borderRadius={"50px"} 
-          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
-          _focus={{ outline: 'none' }} 
-          _focusVisible={{ outline: 'none' }}
-          fontSize={{base: "14px", md: "16px"}}
-        >
-          ISACA
-        </Tab>
-        <Tab 
-          p={{base: "10px 30px", md: "14px 46px"}} 
-          bg="transparent" 
-          color="rgba(255, 255, 255, 0.65)" 
-          borderRadius={"50px"} 
-          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
-          _focus={{ outline: 'none' }} 
-          _focusVisible={{ outline: 'none' }}
-          fontSize={{base: "14px", md: "16px"}}
-        >
-          EC-Council
-        </Tab>
-        <Tab 
-          p={{base: "10px 30px", md: "14px 46px"}} 
-          bg="transparent" 
-          color="rgba(255, 255, 255, 0.65)" 
-          borderRadius={"50px"} 
-          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
-          _focus={{ outline: 'none' }} 
-          _focusVisible={{ outline: 'none' }}
-          fontSize={{base: "14px", md: "16px"}}
-        >
-          Mile2
-        </Tab>
-        <Tab 
-          p={{base: "10px 30px", md: "14px 46px"}} 
-          bg="transparent" 
-          color="rgba(255, 255, 255, 0.65)" 
-          borderRadius={"50px"} 
-          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
-          _focus={{ outline: 'none' }} 
-          _focusVisible={{ outline: 'none' }}
-          fontSize={{base: "14px", md: "16px"}}
-        >
-          PMI
-        </Tab>
-        <Tab 
-          p={{base: "10px 30px", md: "14px 46px"}} 
-          bg="transparent" 
-          color="rgba(255, 255, 255, 0.65)" 
-          borderRadius={"50px"} 
-          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
-          _focus={{ outline: 'none' }} 
-          _focusVisible={{ outline: 'none' }}
-          fontSize={{base: "14px", md: "16px"}}
-        >
-          CISCO
-        </Tab>
-      </TabList>
+          <Tab
+            p={{base: "10px 30px", md: "14px 46px"}}
+            bg="transparent"
+            color="rgba(255, 255, 255, 0.65)"
+            borderRadius="50px"
+            _selected={{ bg: '#FFFFFF', color: '#7D31EA' }}
+            _focus={{ outline: 'none' }} 
+            _focusVisible={{ outline: 'none' }}
+            fontSize={{base: "14px", md: "16px"}}
+          >
+            CompTIA
+          </Tab>
+          <Tab 
+            p={{base: "10px 30px", md: "14px 46px"}} 
+            bg="transparent" 
+            color="rgba(255, 255, 255, 0.65)" 
+            borderRadius={"50px"} 
+            _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+            _focus={{ outline: 'none' }} 
+            _focusVisible={{ outline: 'none' }}
+            fontSize={{base: "14px", md: "16px"}}
+          >
+            ISC2
+          </Tab>
+          <Tab 
+            p={{base: "10px 30px", md: "14px 46px"}} 
+            bg="transparent" 
+            color="rgba(255, 255, 255, 0.65)" 
+            borderRadius={"50px"} 
+            _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+            _focus={{ outline: 'none' }} 
+            _focusVisible={{ outline: 'none' }}
+            fontSize={{base: "14px", md: "16px"}}
+          >
+            ISACA
+          </Tab>
+          <Tab 
+            p={{base: "10px 30px", md: "14px 46px"}} 
+            bg="transparent" 
+            color="rgba(255, 255, 255, 0.65)" 
+            borderRadius={"50px"} 
+            _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+            _focus={{ outline: 'none' }} 
+            _focusVisible={{ outline: 'none' }}
+            fontSize={{base: "14px", md: "16px"}}
+          >
+            EC-Council
+          </Tab>
+          <Tab 
+            p={{base: "10px 30px", md: "14px 46px"}} 
+            bg="transparent" 
+            color="rgba(255, 255, 255, 0.65)" 
+            borderRadius={"50px"} 
+            _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+            _focus={{ outline: 'none' }} 
+            _focusVisible={{ outline: 'none' }}
+            fontSize={{base: "14px", md: "16px"}}
+          >
+            Mile2
+          </Tab>
+          <Tab 
+            p={{base: "10px 30px", md: "14px 46px"}} 
+            bg="transparent" 
+            color="rgba(255, 255, 255, 0.65)" 
+            borderRadius={"50px"} 
+            _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+            _focus={{ outline: 'none' }} 
+            _focusVisible={{ outline: 'none' }}
+            fontSize={{base: "14px", md: "16px"}}
+          >
+            PMI
+          </Tab>
+          <Tab 
+            p={{base: "10px 30px", md: "14px 46px"}} 
+            bg="transparent" 
+            color="rgba(255, 255, 255, 0.65)" 
+            borderRadius={"50px"} 
+            _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+            _focus={{ outline: 'none' }} 
+            _focusVisible={{ outline: 'none' }}
+            fontSize={{base: "14px", md: "16px"}}
+          >
+            CISCO
+          </Tab>
+        </TabList>
 
-      <TabPanels maxW={"1440px"} mx={"auto"}>
-        <TabPanel>
-          <Grid 
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(4, 1fr)"
-            }}
-            gap={{base: "20px", md: "30px"}}
-            justifyItems="center"
-          >
-            {renderProducts("CompTIA")}
-          </Grid>
-        </TabPanel>
-        <TabPanel>
-          <Grid 
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(4, 1fr)"
-            }}
-            gap={{base: "20px", md: "30px"}}
-            justifyItems="center"
-          >
-            {renderProducts("ISC2")}
-          </Grid>
-        </TabPanel>
-        <TabPanel>
-          <Grid 
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(4, 1fr)"
-            }}
-            gap={{base: "20px", md: "30px"}}
-            justifyItems="center"
-          >
-            {renderProducts("ISACA")}
-          </Grid>
-        </TabPanel>
-        <TabPanel>
-          <Grid 
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(4, 1fr)"
-            }}
-            gap={{base: "20px", md: "30px"}}
-            justifyItems="center"
-          >
-            {renderProducts("EC-Council")}
-          </Grid>
-        </TabPanel>
-        <TabPanel>
-          <Grid 
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(4, 1fr)"
-            }}
-            gap={{base: "20px", md: "30px"}}
-            justifyItems="center"
-          >
-            {renderProducts("Mile2")}
-          </Grid>
-        </TabPanel>
-        <TabPanel>
-          <Grid 
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(4, 1fr)"
-            }}
-            gap={{base: "20px", md: "30px"}}
-            justifyItems="center"
-          >
-            {renderProducts("PMI")}
-          </Grid>
-        </TabPanel>
-        <TabPanel>
-          <Grid 
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(4, 1fr)"
-            }}
-            gap={{base: "20px", md: "30px"}}
-            justifyItems="center"
-          >
-            {renderProducts("CISCO")}
-          </Grid>
-        </TabPanel>
-      </TabPanels>
-    </Tabs>
+        <TabPanels maxW={"1440px"} mx={"auto"}>
+          <TabPanel>
+            <Grid 
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(4, 1fr)"
+              }}
+              gap={{base: "20px", md: "30px"}}
+              justifyItems="center"
+            >
+              {renderProducts("CompTIA")}
+            </Grid>
+          </TabPanel>
+          <TabPanel>
+            <Grid 
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(4, 1fr)"
+              }}
+              gap={{base: "20px", md: "30px"}}
+              justifyItems="center"
+            >
+              {renderProducts("ISC2")}
+            </Grid>
+          </TabPanel>
+          <TabPanel>
+            <Grid 
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(4, 1fr)"
+              }}
+              gap={{base: "20px", md: "30px"}}
+              justifyItems="center"
+            >
+              {renderProducts("ISACA")}
+            </Grid>
+          </TabPanel>
+          <TabPanel>
+            <Grid 
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(4, 1fr)"
+              }}
+              gap={{base: "20px", md: "30px"}}
+              justifyItems="center"
+            >
+              {renderProducts("EC-Council")}
+            </Grid>
+          </TabPanel>
+          <TabPanel>
+            <Grid 
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(4, 1fr)"
+              }}
+              gap={{base: "20px", md: "30px"}}
+              justifyItems="center"
+            >
+              {renderProducts("Mile2")}
+            </Grid>
+          </TabPanel>
+          <TabPanel>
+            <Grid 
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(4, 1fr)"
+              }}
+              gap={{base: "20px", md: "30px"}}
+              justifyItems="center"
+            >
+              {renderProducts("PMI")}
+            </Grid>
+          </TabPanel>
+          <TabPanel>
+            <Grid 
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(4, 1fr)"
+              }}
+              gap={{base: "20px", md: "30px"}}
+              justifyItems="center"
+            >
+              {renderProducts("CISCO")}
+            </Grid>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Box>
   );
 };
 

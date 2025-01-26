@@ -80,7 +80,7 @@ import {
           <Text fontSize="md">
             Built by{' '}
             <Link
-              href="https://github.com/MA-Ahmad"
+              href="https://github.com/Ahtisham8952"
               textDecoration="underline"
               _hover={{ textDecoration: 'underline' }}
               isExternal

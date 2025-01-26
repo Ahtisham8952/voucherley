@@ -1,5 +1,5 @@
 import { Box, Container, Flex, Image, Text, Badge } from "@chakra-ui/react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import MobileMenu from "./MobileMenu";
 import MainMenuList from "./MainMenuList";
@@ -10,6 +10,20 @@ import TopHeaderBar from "./TopHeaderBar";
 const MainHeader = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.querySelector('.hero-section');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setIsSticky(heroBottom <= 0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleCartClick = () => {
     dispatch(openDrawer());
@@ -19,13 +33,17 @@ const MainHeader = () => {
     <>
       {/* <TopHeaderBar /> */}
       <Box
-        minH="auto"
-        position={"absolute"}
+        position={isSticky ? "fixed" : "absolute"}
         top={0}
         left={0}
         right={0}
         zIndex={10}
-        bg="transparent"
+        bg={isSticky ? "rgba(49, 17, 100, 0.95)" : "transparent"}
+        backdropFilter={isSticky ? "blur(8px)" : "none"}
+        transition="all 0.3s ease"
+        py={{base: "15px", md: "20px"}}
+        px={{base: "20px", md: "40px"}}
+        boxShadow={isSticky ? "0 2px 10px rgba(0, 0, 0, 0.1)" : "none"}
       >
         <Container maxW="1752px" mx="auto">
           <Flex
