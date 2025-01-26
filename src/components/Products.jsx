@@ -329,6 +329,114 @@ const dummyProducts = [
     image: "/sscp.svg",
     category: "ISC2",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 40,
+    title: "EC-Council CEH",
+    description: "Certified Ethical Hacker (CEH) is a certification program that certifies individuals in the specific network security discipline of Ethical Hacking from a vendor-neutral perspective.",
+    price: 850,
+    image: "/ceh.svg",
+    category: "EC-Council",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 41,
+    title: "EC-Council CHFI",
+    description: "Computer Hacking Forensic Investigator (CHFI) provides the necessary skills to perform effective digital forensic investigations.",
+    price: 850,
+    image: "/chfi.svg",
+    category: "EC-Council",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 42,
+    title: "EC-Council CCISO",
+    description: "Certified Chief Information Security Officer (CCISO) certification is an industry-leading program that recognizes the real-world experience necessary to succeed at the highest executive levels of information security.",
+    price: 999,
+    image: "/cciso.svg",
+    category: "EC-Council",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 50,
+    title: "Mile2 CPTE",
+    description: "Certified Penetration Testing Engineer (CPTE) certification validates your ability to conduct penetration tests using the latest tools and techniques.",
+    price: 599,
+    image: "/cpte.svg",
+    category: "Mile2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 51,
+    title: "Mile2 CPTC",
+    description: "Certified Penetration Testing Consultant (CPTC) is designed for security professionals who want to master advanced penetration testing methodologies.",
+    price: 699,
+    image: "/cptc.svg",
+    category: "Mile2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 52,
+    title: "Mile2 CDFE",
+    description: "Certified Digital Forensics Examiner (CDFE) certification proves your ability to conduct digital forensics investigations using industry-standard tools and procedures.",
+    price: 599,
+    image: "/cdfe.svg",
+    category: "Mile2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 60,
+    title: "PMI PMP",
+    description: "Project Management Professional (PMP) certification is the most important industry-recognized certification for project managers.",
+    price: 555,
+    image: "/pmp.svg",
+    category: "PMI",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 61,
+    title: "PMI CAPM",
+    description: "Certified Associate in Project Management (CAPM) is a valuable entry-level certification for project practitioners.",
+    price: 300,
+    image: "/capm.svg",
+    category: "PMI",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 62,
+    title: "PMI ACP",
+    description: "PMI Agile Certified Practitioner (PMI-ACP) certification recognizes your knowledge of agile principles and your skill with agile techniques.",
+    price: 495,
+    image: "/acp.svg",
+    category: "PMI",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 70,
+    title: "Cisco CCNA",
+    description: "Cisco Certified Network Associate (CCNA) validates your ability to install, configure, operate, and troubleshoot medium-size routed and switched networks.",
+    price: 299,
+    image: "/ccna.svg",
+    category: "CISCO",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 71,
+    title: "Cisco CCNP Enterprise",
+    description: "Cisco Certified Network Professional Enterprise (CCNP Enterprise) certification proves your skills with enterprise networking solutions.",
+    price: 399,
+    image: "/ccnp.svg",
+    category: "CISCO",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 72,
+    title: "Cisco CCIE Enterprise",
+    description: "Cisco Certified Internetwork Expert Enterprise Infrastructure (CCIE Enterprise) certification is the highest level of certification offered by Cisco.",
+    price: 1599,
+    image: "/ccie.svg",
+    category: "CISCO",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   }
 ];
 
@@ -356,7 +464,7 @@ const Products = () => {
 
   const renderProducts = (category) => {
     return products.filter(product => product.category === category).map((product) => (
-      <Box p="24px" h="auto" w={{base:'100%',md:'40%',lg:'23%'}} mb="24px" bg="#FFFFFFED" borderRadius={"16px"} key={product.id}>
+      <Box p="24px" h="auto" w={{base:'100%',md:'100%',lg:'100%'}} mb="24px" bg="#FFFFFFED" borderRadius={"16px"} key={product.id}>
         <Box mb="10px" position={"relative"}>
           <Link to={`/products/${product.id}`}>
             <Img mx={"auto"} h="200px" src={product.image} borderRadius={"2px"} w="200px"></Img>
@@ -410,41 +518,203 @@ const Products = () => {
 
   return (
     <Tabs variant="soft-rounded" colorScheme="blue" mt="40px" mx='20px'>
-      <TabList flexDirection={{base:'column',sm:'row'}}  p='16px 32px' mx={"auto"} justifyContent="space-between" borderBottom={"none"} bg="rgba(49, 17, 100, 0.75)" maxW={"650px"} borderRadius={{base:'35px',md:'100px'}}>
+      <TabList 
+        flexDirection={{base: 'column', md: 'row'}}
+        flexWrap={{md: 'wrap'}}
+        gap={{base: '10px', md: '15px'}}
+        p={{base: '16px', md: '20px 32px'}} 
+        mx={"auto"} 
+        justifyContent={{base: 'center', md: 'center'}} 
+        alignItems="center"
+        borderBottom={"none"} 
+        bg="rgba(49, 17, 100, 0.75)" 
+        maxW={"1500px"} 
+        borderRadius={{base:'25px', md:'50px'}}
+      >
         <Tab
-          p="14px 46px"
+          p={{base: "10px 30px", md: "14px 46px"}}
           bg="transparent"
           color="rgba(255, 255, 255, 0.65)"
           borderRadius="50px"
           _selected={{ bg: '#FFFFFF', color: '#7D31EA' }}
           _focus={{ outline: 'none' }} 
-          _focusVisible={{ outline: 'none' }}  
+          _focusVisible={{ outline: 'none' }}
+          fontSize={{base: "14px", md: "16px"}}
         >
           CompTIA
         </Tab>
-        <Tab p="14px 46px" bg="transparent" color="rgba(255, 255, 255, 0.65)" borderRadius={"50px"} _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  _focus={{ outline: 'none' }} 
-          _focusVisible={{ outline: 'none' }}  
-        >ISC2</Tab>
-        <Tab p="14px 46px" bg="transparent" color="rgba(255, 255, 255, 0.65)" borderRadius={"50px"} _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  _focus={{ outline: 'none' }} 
-          _focusVisible={{ outline: 'none' }}  
-        >ISACA</Tab>
+        <Tab 
+          p={{base: "10px 30px", md: "14px 46px"}} 
+          bg="transparent" 
+          color="rgba(255, 255, 255, 0.65)" 
+          borderRadius={"50px"} 
+          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+          _focus={{ outline: 'none' }} 
+          _focusVisible={{ outline: 'none' }}
+          fontSize={{base: "14px", md: "16px"}}
+        >
+          ISC2
+        </Tab>
+        <Tab 
+          p={{base: "10px 30px", md: "14px 46px"}} 
+          bg="transparent" 
+          color="rgba(255, 255, 255, 0.65)" 
+          borderRadius={"50px"} 
+          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+          _focus={{ outline: 'none' }} 
+          _focusVisible={{ outline: 'none' }}
+          fontSize={{base: "14px", md: "16px"}}
+        >
+          ISACA
+        </Tab>
+        <Tab 
+          p={{base: "10px 30px", md: "14px 46px"}} 
+          bg="transparent" 
+          color="rgba(255, 255, 255, 0.65)" 
+          borderRadius={"50px"} 
+          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+          _focus={{ outline: 'none' }} 
+          _focusVisible={{ outline: 'none' }}
+          fontSize={{base: "14px", md: "16px"}}
+        >
+          EC-Council
+        </Tab>
+        <Tab 
+          p={{base: "10px 30px", md: "14px 46px"}} 
+          bg="transparent" 
+          color="rgba(255, 255, 255, 0.65)" 
+          borderRadius={"50px"} 
+          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+          _focus={{ outline: 'none' }} 
+          _focusVisible={{ outline: 'none' }}
+          fontSize={{base: "14px", md: "16px"}}
+        >
+          Mile2
+        </Tab>
+        <Tab 
+          p={{base: "10px 30px", md: "14px 46px"}} 
+          bg="transparent" 
+          color="rgba(255, 255, 255, 0.65)" 
+          borderRadius={"50px"} 
+          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+          _focus={{ outline: 'none' }} 
+          _focusVisible={{ outline: 'none' }}
+          fontSize={{base: "14px", md: "16px"}}
+        >
+          PMI
+        </Tab>
+        <Tab 
+          p={{base: "10px 30px", md: "14px 46px"}} 
+          bg="transparent" 
+          color="rgba(255, 255, 255, 0.65)" 
+          borderRadius={"50px"} 
+          _selected={{bg:'#FFFFFF',color:'#7D31EA'}}  
+          _focus={{ outline: 'none' }} 
+          _focusVisible={{ outline: 'none' }}
+          fontSize={{base: "14px", md: "16px"}}
+        >
+          CISCO
+        </Tab>
       </TabList>
 
       <TabPanels maxW={"1440px"} mx={"auto"}>
         <TabPanel>
-          <Flex flexWrap={"wrap"} gap="40px" justifyContent={"center"}>
+          <Grid 
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(4, 1fr)"
+            }}
+            gap={{base: "20px", md: "30px"}}
+            justifyItems="center"
+          >
             {renderProducts("CompTIA")}
-          </Flex>
+          </Grid>
         </TabPanel>
         <TabPanel>
-          <Flex flexWrap={"wrap"} gap="40px" justifyContent={"center"}>
+          <Grid 
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(4, 1fr)"
+            }}
+            gap={{base: "20px", md: "30px"}}
+            justifyItems="center"
+          >
             {renderProducts("ISC2")}
-          </Flex>
+          </Grid>
         </TabPanel>
         <TabPanel>
-          <Flex flexWrap={"wrap"} gap="40px" justifyContent={"center"}>
+          <Grid 
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(4, 1fr)"
+            }}
+            gap={{base: "20px", md: "30px"}}
+            justifyItems="center"
+          >
             {renderProducts("ISACA")}
-          </Flex>
+          </Grid>
+        </TabPanel>
+        <TabPanel>
+          <Grid 
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(4, 1fr)"
+            }}
+            gap={{base: "20px", md: "30px"}}
+            justifyItems="center"
+          >
+            {renderProducts("EC-Council")}
+          </Grid>
+        </TabPanel>
+        <TabPanel>
+          <Grid 
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(4, 1fr)"
+            }}
+            gap={{base: "20px", md: "30px"}}
+            justifyItems="center"
+          >
+            {renderProducts("Mile2")}
+          </Grid>
+        </TabPanel>
+        <TabPanel>
+          <Grid 
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(4, 1fr)"
+            }}
+            gap={{base: "20px", md: "30px"}}
+            justifyItems="center"
+          >
+            {renderProducts("PMI")}
+          </Grid>
+        </TabPanel>
+        <TabPanel>
+          <Grid 
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(4, 1fr)"
+            }}
+            gap={{base: "20px", md: "30px"}}
+            justifyItems="center"
+          >
+            {renderProducts("CISCO")}
+          </Grid>
         </TabPanel>
       </TabPanels>
     </Tabs>

@@ -17,14 +17,15 @@ const MainHeader = () => {
 
   return (
     <>
-      <TopHeaderBar />
+      {/* <TopHeaderBar /> */}
       <Box
         minH="auto"
-        position={"sticky"}
-        top="0"  
-        bg="#272937"
-        zIndex={'999'}
-        width="100%"
+        position={"absolute"}
+        top={0}
+        left={0}
+        right={0}
+        zIndex={10}
+        bg="transparent"
       >
         <Container maxW="1752px" mx="auto">
           <Flex
