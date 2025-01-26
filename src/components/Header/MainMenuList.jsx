@@ -57,7 +57,7 @@ const MainMenuList = ({ onMenuLinkClick }) => {
         </Link>
 
       </Flex> */}
-      <Link onClick={handleClick} to="/signup" style={linkStyles("/contact")}>
+      <Link onClick={handleClick} to="/contact" style={linkStyles("/contact")}>
         Contact 
       </Link> 
 
