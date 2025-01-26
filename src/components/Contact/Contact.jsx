@@ -88,7 +88,7 @@ Coupon Code: ${formData.couponCode || 'N/A'}
 
       if (result.text === 'OK') {
         // Show success message based on coupon code
-        if (formData.couponCode === 'EXAMDISCOUNT') {
+        if (formData.couponCode === 'Examdiscount2025') {
           toast({
             title: "Registration Submitted Successfully!",
             description: "Thanks! You will get 25% discount on exam fee according to your region. we will get back to you shortly",
