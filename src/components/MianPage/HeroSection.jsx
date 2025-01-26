@@ -18,7 +18,7 @@ const HeroSection = () => {
       position="relative"
       h={{base: "100vh", md: "80vh"}}
       w="100%"
-      bgImage="url('/hero-bg.jpg')"
+      bgImage="url('/ban1.jpg')"
       bgSize="cover"
       bgPosition="center"
       bgRepeat="no-repeat"
