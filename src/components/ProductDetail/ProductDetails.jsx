@@ -61,7 +61,7 @@ const ProductDetail = () => {
     } else {
       toast({
         title: "Missing Information",
-        description: "Please select a quantity and variant before adding to the cart.",
+        description: "Please select a quantity  before adding to the cart.",
         status: "warning",
         duration: 5000,
         isClosable: true,

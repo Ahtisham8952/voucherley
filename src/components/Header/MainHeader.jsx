@@ -17,7 +17,7 @@ const MainHeader = () => {
 
   return (
     <>
-      <TopHeaderBar />
+      {/* <TopHeaderBar /> */}
       <Box
         minH="auto"
         position={"sticky"}

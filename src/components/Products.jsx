@@ -112,7 +112,72 @@ const dummyProducts = [
     image: "/product3.png",
     category: "Breeze Elite",
     mgVariants: ["30mg", "45mg", "60mg"]
-  }
+  },
+ 
+  {
+    id: 15,
+    title: "CompTIA Server+",
+    description: "CompTIA Server+ ensures professionals have the skills to work in data centers and cloud environments, validating hands-on skills required to work with servers.",
+    price: 219,
+    image: "/serdard.svg",
+    category: "CompTIA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 16,
+    title: "CompTIA Cloud+",
+    description: "CompTIA Cloud+ validates the skills needed to maintain and optimize cloud infrastructure services, covering cloud concepts, models, virtualization, infrastructure, security, resource management and business continuity.",
+    price: 229,
+    image: "/cloud.svg",
+    category: "CompTIA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 17,
+    title: "CompTIA Linux+",
+    description: "CompTIA Linux+ validates the competencies required of an early career system administrator supporting Linux systems, covering system configuration, management, troubleshooting, and security.",
+    price: 219,
+    image: "/linux.svg",
+    category: "CompTIA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 18,
+    title: "CompTIA CASP+",
+    description: "CompTIA Advanced Security Practitioner (CASP+) is an advanced-level cybersecurity certification for security architects and senior security engineers charged with leading and improving an enterprise's cybersecurity readiness.",
+    price: 299,
+    image: "/casp.svg",
+    category: "CompTIA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 19,
+    title: "CompTIA Data+",
+    description: "CompTIA Data+ is a certification that validates the skills needed to transform business requirements in support of data-driven decisions through mining, manipulating, and reporting data.",
+    price: 219,
+    image: "/data.svg",
+    category: "CompTIA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 20,
+    title: "CompTIA Project+",
+    description: "CompTIA Project+ gives business professionals the basic concepts to successfully manage small to medium-sized projects, validating the entire project life cycle.",
+    price: 199,
+    image: "/project.svg",
+    category: "CompTIA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 21,
+    title: "CompTIA Cloud Essentials+",
+    description: "CompTIA Cloud Essentials+ is a certification that demonstrates the knowledge and skills required to make business decisions about cloud technologies, covering cloud concepts, business principles, management and technical operations.",
+    price: 179,
+    image: "/essentials.svg",
+    category: "CompTIA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+ 
 ];
 
 const Products = () => {
@@ -153,7 +218,7 @@ const Products = () => {
     } else {
       toast({
         title: "Missing Information",
-        description: "Please select a quantity and variant before adding to the cart.",
+        description: "Please select a quantity  adding to the cart.",
         status: "warning",
         duration: 5000,
         isClosable: true,
