@@ -177,7 +177,159 @@ const dummyProducts = [
     category: "CompTIA",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   },
- 
+  {
+    id: 23,
+    title: "ISACA CISA",
+    description: "The Certified Information Systems Auditor (CISA) certification is globally recognized for IS/IT audit, control, and assurance professionals. Validates expertise in assessing vulnerabilities, reporting on compliance, and implementing enterprise controls.",
+    price: 575,
+    image: "/cisa.svg",
+    category: "ISACA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 24,
+    title: "ISACA CISM",
+    description: "The Certified Information Security Manager (CISM) certification is designed for information security managers. Focuses on security strategy, program development, and governance, demonstrating expertise in managing enterprise information security.",
+    price: 575,
+    image: "/cism.svg",
+    category: "ISACA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 25,
+    title: "ISACA CRISC",
+    description: "The Certified in Risk and Information Systems Control (CRISC) certification is for IT professionals who identify and manage risks through the development, implementation and maintenance of information systems controls.",
+    price: 575,
+    image: "/crisc.svg",
+    category: "ISACA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 26,
+    title: "ISACA CGEIT",
+    description: "The Certified in the Governance of Enterprise IT (CGEIT) certification validates knowledge in enterprise IT governance principles and practices. Ideal for professionals managing and providing advisory services in Enterprise IT Governance.",
+    price: 575,
+    image: "/cgeit.svg",
+    category: "ISACA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 27,
+    title: "ISACA CSX-P",
+    description: "The Cybersecurity Practitioner Certification (CSX-P) is designed for cybersecurity practitioners. Validates hands-on ability to identify, analyze, respond to and mitigate cybersecurity threats in real-time.",
+    price: 575,
+    image: "/csxp.svg",
+    category: "ISACA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 28,
+    title: "ISACA CDPSE",
+    description: "The Certified Data Privacy Solutions Engineer (CDPSE) certification validates technical skills in implementing privacy by design to enable organizations to enhance privacy technology platforms and products.",
+    price: 575,
+    image: "/cdpse.svg",
+    category: "ISACA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 29,
+    title: "ISACA ITCA",
+    description: "The Information Technology Certified Associate (ITCA) certification is perfect for entry-level professionals. Provides foundational knowledge across key technology domains including computing, networks, cybersecurity, and software development.",
+    price: 575,
+    image: "/itca.svg",
+    category: "ISACA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 30,
+    title: "ISACA CET",
+    description: "The Certified in Emerging Technology (CET) certification focuses on the most innovative and promising technologies. Covers cloud computing, blockchain, IoT, and artificial intelligence, preparing professionals for future technological challenges.",
+    price: 575,
+    image: "/cet.svg",
+    category: "ISACA",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 31,
+    title: "ISC2 CC",
+    description: "The Certified in Cybersecurity (CC) is an entry-level certification that proves your competency in fundamental cybersecurity concepts. Perfect for those starting their cybersecurity career.",
+    price: 199,
+    image: "/cc.svg",
+    category: "ISC2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 32,
+    title: "ISC2 CISSP",
+    description: "The Certified Information Systems Security Professional (CISSP) is the most globally recognized certification in information security. Validates advanced knowledge and experience in cybersecurity leadership.",
+    price: 749,
+    image: "/cissp.svg",
+    category: "ISC2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 33,
+    title: "ISC2 CISSP-ISSAP",
+    description: "The Information Systems Security Architecture Professional (CISSP-ISSAP) concentration demonstrates your expertise in designing security architecture that meets business needs.",
+    price: 599,
+    image: "/issap.svg",
+    category: "ISC2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 34,
+    title: "ISC2 CISSP-ISSEP",
+    description: "The Information Systems Security Engineering Professional (CISSP-ISSEP) concentration focuses on security engineering concepts and practices. Perfect for security engineers working with government agencies.",
+    price: 599,
+    image: "/issep.svg",
+    category: "ISC2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 35,
+    title: "ISC2 CISSP-ISSMP",
+    description: "The Information Systems Security Management Professional (CISSP-ISSMP) concentration validates your expertise in security leadership and program management.",
+    price: 599,
+    image: "/issmp.svg",
+    category: "ISC2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 36,
+    title: "ISC2 CSSLP",
+    description: "The Certified Secure Software Lifecycle Professional (CSSLP) certification validates your expertise in securing applications throughout the software development lifecycle.",
+    price: 599,
+    image: "/csslp.svg",
+    category: "ISC2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 37,
+    title: "ISC2 CCSP",
+    description: "The Certified Cloud Security Professional (CCSP) certification demonstrates your knowledge and competency in cloud security design, implementation, architecture, operations, and service orchestration.",
+    price: 599,
+    image: "/ccsp.svg",
+    category: "ISC2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 38,
+    title: "ISC2 CGRC",
+    description: "The Certified in Governance, Risk and Compliance (CGRC) certification validates your expertise in establishing and maintaining an enterprise-wide view of governance, risk management, and compliance.",
+    price: 599,
+    image: "/cgrc.svg",
+    category: "ISC2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  },
+  {
+    id: 39,
+    title: "ISC2 SSCP",
+    description: "The Systems Security Certified Practitioner (SSCP) certification demonstrates your technical skills and hands-on experience in implementing, monitoring and administering IT infrastructure.",
+    price: 249,
+    image: "/sscp.svg",
+    category: "ISC2",
+    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
+  }
 ];
 
 const Products = () => {
@@ -348,10 +500,8 @@ const Products = () => {
           </Flex>
         </TabPanel>
         <TabPanel>
-          <Productinfo productname={'Breeze Elite'}/>
           <Flex flexWrap={"wrap"} gap="40px" justifyContent={"center"}>
-            {renderProducts("Breeze Elite")}
-            <Image h="537px" w={{base:'100%',md:'40%',lg:'23%'}} src="/breezeelite.png"></Image>
+            {renderProducts("ISACA")}
           </Flex>
         </TabPanel>
       </TabPanels>

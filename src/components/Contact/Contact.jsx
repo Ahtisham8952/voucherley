@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import { useLocation } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -16,6 +17,7 @@ import {
 } from '@chakra-ui/react';
 
 const Contact = () => {
+  const location = useLocation();
   const toast = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const form = useRef();
@@ -31,10 +33,21 @@ const Contact = () => {
     couponCode: ''
   });
 
+  // Set exam name from navigation state when component mounts
+  useEffect(() => {
+    if (location.state?.examName) {
+      console.log('Setting exam name:', location.state.examName); // Debug log
+      setFormData(prevData => ({
+        ...prevData,
+        examName: location.state.examName
+      }));
+    }
+  }, [location]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
+    setFormData(prevData => ({
+      ...prevData,
       [name]: value
     }));
   };
@@ -74,15 +87,26 @@ Coupon Code: ${formData.couponCode || 'N/A'}
       );
 
       if (result.text === 'OK') {
-        // Show success message
-        toast({
-          title: "Registration Submitted",
-          description: "We've received your exam registration request. We'll contact you shortly!",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
+        // Show success message based on coupon code
+        if (formData.couponCode === 'EXAMDISCOUNT') {
+          toast({
+            title: "Registration Submitted Successfully!",
+            description: "Thanks! You will get 25% discount on exam fee according to your region. we will get back to you shortly",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
+          });
+        } else {
+          toast({
+            title: "Registration Submitted",
+            description: "Thanks for the submission, we will get back to you shortly.",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
+          });
+        }
 
         // Clear form
         setFormData({
@@ -185,7 +209,7 @@ Coupon Code: ${formData.couponCode || 'N/A'}
               <GridItem>
                 <FormControl isRequired>
                   <FormLabel color="#333">Exam Name</FormLabel>
-                  <Select
+                  <Input
                     name="examName"
                     value={formData.examName}
                     onChange={handleChange}
@@ -193,16 +217,8 @@ Coupon Code: ${formData.couponCode || 'N/A'}
                     borderColor="#7D31EA"
                     _hover={{ borderColor: '#5111AE' }}
                     _focus={{ borderColor: '#5111AE', boxShadow: '0 0 0 1px #5111AE' }}
-                  >
-                    <option value="CompTIA Security+">CompTIA Security+ (SY0-601)</option>
-                    <option value="CompTIA Network+">CompTIA Network+ (N10-008)</option>
-                    <option value="CompTIA PenTest+">CompTIA PenTest+ (PT0-002)</option>
-                    <option value="CompTIA CySA+">CompTIA CySA+ (CS0-003)</option>
-                    <option value="ISC2 CISSP">ISC2 CISSP</option>
-                    <option value="ISC2 CCSP">ISC2 CCSP</option>
-                    <option value="ISC2 SSCP">ISC2 SSCP</option>
-                    <option value="ISC2 CC">ISC2 CC</option>
-                  </Select>
+                    readOnly
+                  />
                 </FormControl>
               </GridItem>
 
@@ -280,7 +296,7 @@ Coupon Code: ${formData.couponCode || 'N/A'}
                     name="couponCode"
                     value={formData.couponCode}
                     onChange={handleChange}
-                    placeholder="Enter coupon code (if any)"
+                    placeholder="Enter EXAMDISCOUNT for 25% off"
                     borderColor="#7D31EA"
                     _hover={{ borderColor: '#5111AE' }}
                     _focus={{ borderColor: '#5111AE', boxShadow: '0 0 0 1px #5111AE' }}
