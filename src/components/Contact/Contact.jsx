@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import {
   Box,
   Container,
-  Flex,
   Grid,
   GridItem,
   FormControl,
@@ -11,11 +11,14 @@ import {
   Button,
   Text,
   useToast,
-  Select
+  Select,
+  Spinner
 } from '@chakra-ui/react';
 
 const Contact = () => {
   const toast = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+  const form = useRef();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -36,16 +39,79 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast({
-      title: "Form Submitted",
-      description: "We'll process your exam registration soon!",
-      status: "success",
-      duration: 5000,
-      isClosable: true,
-      position: "top",
-    });
+    setIsLoading(true);
+
+    try {
+      const templateParams = {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        reply_to: formData.email,
+        to_name: "CertBills Support",
+        message: `
+Registration Details:
+
+First Name: ${formData.firstName}
+Last Name: ${formData.lastName}
+Email: ${formData.email}
+Exam Name: ${formData.examName}
+Address: ${formData.address}
+Exam Date: ${formData.examDate}
+Exam Time: ${formData.examTime}
+Country: ${formData.country}
+Coupon Code: ${formData.couponCode || 'N/A'}
+`
+      };
+
+      // Initialize EmailJS
+      emailjs.init("t4SLSJoO9l00n2g0t");
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        'service_z61jsz5',
+        'template_mos5kld',
+        templateParams
+      );
+
+      if (result.text === 'OK') {
+        // Show success message
+        toast({
+          title: "Registration Submitted",
+          description: "We've received your exam registration request. We'll contact you shortly!",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+
+        // Clear form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          examName: '',
+          address: '',
+          examDate: '',
+          examTime: '',
+          country: '',
+          couponCode: ''
+        });
+      } else {
+        throw new Error('Email sending failed');
+      }
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      toast({
+        title: "Registration Failed",
+        description: "There was an error submitting your registration. Please try again.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -68,7 +134,7 @@ const Contact = () => {
             Exam Registration Form
           </Text>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} ref={form}>
             <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} gap={6}>
               <GridItem>
                 <FormControl isRequired>
@@ -232,6 +298,9 @@ const Contact = () => {
               size="lg"
               _hover={{ bg: '#5111AE' }}
               _active={{ bg: '#5111AE' }}
+              isLoading={isLoading}
+              loadingText="Submitting"
+              spinner={<Spinner color="white" />}
             >
               Submit Registration
             </Button>
