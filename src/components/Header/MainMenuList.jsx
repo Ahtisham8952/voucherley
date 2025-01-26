@@ -40,6 +40,9 @@ const MainMenuList = ({ onMenuLinkClick }) => {
       letterSpacing="0.04em"
       textTransform="uppercase"
     >
+      <Link onClick={handleClick} to="/" style={linkStyles("/")}>
+       Home
+      </Link> 
       <Link onClick={handleClick} to="/products" style={linkStyles("/products")}>
         Products
       </Link>
@@ -60,6 +63,7 @@ const MainMenuList = ({ onMenuLinkClick }) => {
       <Link onClick={handleClick} to="/contact" style={linkStyles("/contact")}>
         Contact 
       </Link> 
+      
 
       <Flex
         minWidth="max-content"

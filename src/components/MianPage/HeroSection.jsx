@@ -5,7 +5,7 @@ import Products from '../Products'
 const HeroSection = () => {
   return (
    <>
-   <Image objectFit={"cover"} h={"400px"} objectPosition={"right"} w='100%' src="/Bannerscro.png"></Image>
+   <Image objectFit={"cover"} h={"400px"} objectPosition={"right"} w='100%' src="/ban1.jpg"></Image>
    </>
   )
 }
