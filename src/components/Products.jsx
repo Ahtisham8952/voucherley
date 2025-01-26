@@ -13,7 +13,7 @@ import {
   TabPanel,
   Image,
   Flex,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { useDispatch } from 'react-redux';
 import { add } from '../features/Auth/cartSlice';
@@ -333,71 +333,25 @@ const dummyProducts = [
 ];
 
 const Products = () => {
+  const [selectedTab, setSelectedTab] = useState(0);
   const [products] = useState(dummyProducts);
-  const [counters, setCounters] = useState(() => {
-    const initialCounters = {};
-    dummyProducts.forEach(product => {
-      initialCounters[product.id] = 0;
-    });
-    return initialCounters;
-  });
-  const [selectedVariants, setSelectedVariants] = useState(() => {
-    const initialVariants = {};
-    dummyProducts.forEach(product => {
-      initialVariants[product.id] = product.mgVariants[0];
-    });
-    return initialVariants;
-  });
   const dispatch = useDispatch();
   const toast = useToast();
 
-  const addToCart = (product, counter, selectedVariant) => {
-    if (counter > 0 && selectedVariant) {
-      const productWithDetails = {
-        ...product,
-        quantity: counter,
-        selectedVariant: selectedVariant,
-      };
-      dispatch(add(productWithDetails));
-      toast({
-        title: "Added to Cart",
-        description: `${counter} ${product.title} with ${selectedVariant} mg added to your cart.`,
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-        position: "top",
-      });
-    } else {
-      toast({
-        title: "Missing Information",
-        description: "Please select a quantity  adding to the cart.",
-        status: "warning",
-        duration: 5000,
-        isClosable: true,
-        position: "top",
-      });
-    }
-  };
-
-  const incrementCounter = (productId) => {
-    setCounters(prevCounters => ({
-      ...prevCounters,
-      [productId]: prevCounters[productId] + 1,
-    }));
-  };
-
-  const decrementCounter = (productId) => {
-    setCounters(prevCounters => ({
-      ...prevCounters,
-      [productId]: Math.max(prevCounters[productId] - 1, 0),
-    }));
-  };
-
-  const handleVariantChange = (productId, variant) => {
-    setSelectedVariants(prevSelectedVariants => ({
-      ...prevSelectedVariants,
-      [productId]: variant,
-    }));
+  const addToCart = (product) => {
+    const productWithDetails = {
+      ...product,
+      quantity: 1
+    };
+    dispatch(add(productWithDetails));
+    toast({
+      title: "Added to Cart",
+      description: `${product.title} added to your cart.`,
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "top",
+    });
   };
 
   const renderProducts = (category) => {
@@ -433,21 +387,9 @@ const Products = () => {
             </Text>
           </Flex>
         </Box>
-        <Flex gap="20px" alignItems={"center"} justifyContent={"center"} mb="8px">
-         
-            <Image cursor={"pointer"}   onClick={() => decrementCounter(product.id)} src="/blackminus.svg"></Image>
-        
-          <Text color="#000000" fontSize="24px" fontWeight="600">
-            {counters[product.id]}
-          </Text>
-        
-          
-            <Image cursor={"pointer"}    onClick={() => incrementCounter(product.id)} src="/blackplus.svg"></Image>
-      
-        </Flex>
         <Button
           colorScheme='#7D31EA'
-          onClick={() => addToCart(product, counters[product.id], selectedVariants[product.id])}
+          onClick={() => addToCart(product)}
           bg="#7D31EA"
           color="white"
           fontSize="14px"

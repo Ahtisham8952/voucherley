@@ -47,10 +47,11 @@ const Cart = () => {
 
   const handleProceedToContact = () => {
     if (items.length > 0) {
-      const examName = items[0].title;
+      // Get all exam names and join them with comma
+      const examNames = items.map(item => item.title).join(', ');
       dispatch(closeDrawer());
       navigate('/contact', { 
-        state: { examName },
+        state: { examName: examNames },
         replace: true  
       });
       dispatch(clearCart());

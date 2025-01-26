@@ -13,7 +13,8 @@ import {
   Text,
   useToast,
   Select,
-  Spinner
+  Spinner,
+  Textarea
 } from '@chakra-ui/react';
 
 const Contact = () => {
@@ -208,16 +209,17 @@ Coupon Code: ${formData.couponCode || 'N/A'}
 
               <GridItem>
                 <FormControl isRequired>
-                  <FormLabel color="#333">Exam Name</FormLabel>
-                  <Input
+                  <FormLabel color="#333">Selected Exams</FormLabel>
+                  <Textarea
                     name="examName"
                     value={formData.examName}
                     onChange={handleChange}
-                    placeholder="Select exam"
+                    placeholder="Your selected exams will appear here"
                     borderColor="#7D31EA"
                     _hover={{ borderColor: '#5111AE' }}
                     _focus={{ borderColor: '#5111AE', boxShadow: '0 0 0 1px #5111AE' }}
                     readOnly
+                    minHeight="80px"
                   />
                 </FormControl>
               </GridItem>
