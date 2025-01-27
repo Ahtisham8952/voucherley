@@ -27,11 +27,9 @@ import {
         >
           <Box maxW="300px">
           
-            <Image  src="/logobreeze.svg" alt="img" />
+          <Image h={{base: "48px", md: "66px"}} w={{base: "98px", md: "130px"}} src="/voucherlogo2.png" alt="img" />
            
-            <Text mt={2} color="gray.500" fontSize="md">
-              In Canada
-            </Text>
+           
           </Box>
           <HStack
             spacing={4}

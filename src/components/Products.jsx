@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -64,7 +65,7 @@ const dummyProducts = [
     title: "ISC2 CISSP",
     description: "The gold standard in cybersecurity certification. Master security and risk management, asset security, security architecture, and more.",
     price: 749,
-    image: "/cissp.png",
+    image: "/cissp.webp",
     category: "ISC2",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   },
@@ -82,7 +83,7 @@ const dummyProducts = [
     title: "ISC2 SSCP",
     description: "Systems Security Practitioner certification. Learn access controls, security operations, risk identification, and incident response.",
     price: 549,
-    image: "/sscp.png",
+    image: "/sscp.webp",
     category: "ISC2",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   },
@@ -91,28 +92,11 @@ const dummyProducts = [
     title: "ISC2 CC",
     description: "Entry-level cybersecurity certification. Foundation in security principles, network security, and security operations.",
     price: 399,
-    image: "/cc.jpg",
+    image: "/cc.webp",
     category: "ISC2",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   },
-  {
-    id: 9,
-    title: "Breeze Prime Strawberry",
-    description: "Indulge in the sweet and juicy flavor of fresh strawberries.",
-    price: 34.99,
-    image: "/product2.png",
-    category: "Breeze Prime",
-    mgVariants: ["25mg", "40mg", "55mg"]
-  },
-  {
-    id: 10,
-    title: "Breeze Elite Mint",
-    description: "Cool and refreshing mint flavor for a crisp vaping experience.",
-    price: 39.99,
-    image: "/product3.png",
-    category: "Breeze Elite",
-    mgVariants: ["30mg", "45mg", "60mg"]
-  },
+  
  
   {
     id: 15,
@@ -249,30 +233,13 @@ const dummyProducts = [
     category: "ISACA",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   },
-  {
-    id: 31,
-    title: "ISC2 CC",
-    description: "The Certified in Cybersecurity (CC) is an entry-level certification that proves your competency in fundamental cybersecurity concepts. Perfect for those starting their cybersecurity career.",
-    price: 199,
-    image: "/cc.svg",
-    category: "ISC2",
-    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
-  },
-  {
-    id: 32,
-    title: "ISC2 CISSP",
-    description: "The Certified Information Systems Security Professional (CISSP) is the most globally recognized certification in information security. Validates advanced knowledge and experience in cybersecurity leadership.",
-    price: 749,
-    image: "/cissp.svg",
-    category: "ISC2",
-    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
-  },
+  
   {
     id: 33,
-    title: "ISC2 CISSP-ISSAP",
+    title: "ISC2 ISSAP",
     description: "The Information Systems Security Architecture Professional (CISSP-ISSAP) concentration demonstrates your expertise in designing security architecture that meets business needs.",
     price: 599,
-    image: "/issap.svg",
+    image: "/issap.webp",
     category: "ISC2",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   },
@@ -281,7 +248,7 @@ const dummyProducts = [
     title: "ISC2 CISSP-ISSEP",
     description: "The Information Systems Security Engineering Professional (CISSP-ISSEP) concentration focuses on security engineering concepts and practices. Perfect for security engineers working with government agencies.",
     price: 599,
-    image: "/issep.svg",
+    image: "/issep.webp",
     category: "ISC2",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   },
@@ -290,7 +257,7 @@ const dummyProducts = [
     title: "ISC2 CISSP-ISSMP",
     description: "The Information Systems Security Management Professional (CISSP-ISSMP) concentration validates your expertise in security leadership and program management.",
     price: 599,
-    image: "/issmp.svg",
+    image: "/issmp.webp",
     category: "ISC2",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   },
@@ -299,37 +266,21 @@ const dummyProducts = [
     title: "ISC2 CSSLP",
     description: "The Certified Secure Software Lifecycle Professional (CSSLP) certification validates your expertise in securing applications throughout the software development lifecycle.",
     price: 599,
-    image: "/csslp.svg",
+    image: "/csslp.webp",
     category: "ISC2",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   },
-  {
-    id: 37,
-    title: "ISC2 CCSP",
-    description: "The Certified Cloud Security Professional (CCSP) certification demonstrates your knowledge and competency in cloud security design, implementation, architecture, operations, and service orchestration.",
-    price: 599,
-    image: "/ccsp.svg",
-    category: "ISC2",
-    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
-  },
+ 
   {
     id: 38,
     title: "ISC2 CGRC",
     description: "The Certified in Governance, Risk and Compliance (CGRC) certification validates your expertise in establishing and maintaining an enterprise-wide view of governance, risk management, and compliance.",
     price: 599,
-    image: "/cgrc.svg",
+    image: "/cgrc.webp",
     category: "ISC2",
     mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
   },
-  {
-    id: 39,
-    title: "ISC2 SSCP",
-    description: "The Systems Security Certified Practitioner (SSCP) certification demonstrates your technical skills and hands-on experience in implementing, monitoring and administering IT infrastructure.",
-    price: 249,
-    image: "/sscp.svg",
-    category: "ISC2",
-    mgVariants: ["Practice Test", "Study Guide", "Full Bundle"]
-  },
+  
   {
     id: 40,
     title: "EC-Council CEH",
@@ -445,6 +396,8 @@ const Products = () => {
   const [products] = useState(dummyProducts);
   const dispatch = useDispatch();
   const toast = useToast();
+  const location = useLocation();
+  const isProductsPage = location.pathname === '/products';
 
   const addToCart = (product) => {
     const productWithDetails = {
@@ -517,8 +470,13 @@ const Products = () => {
   };
 
   return (
-    <Box mt={{base: "100px", md: "120px"}}>
-      <Tabs variant="soft-rounded" colorScheme="blue" mx='20px'>
+    <Box>
+      {isProductsPage && (
+        <Box width="100%" mb={4}>
+          <Image src="/Productbanner.png" alt="Products Banner" width="100%" />
+        </Box>
+      )}
+      <Tabs onChange={(index) => setSelectedTab(index)} variant="enclosed">
         <TabList 
           flexDirection={{base: 'column', md: 'row'}}
           flexWrap={{md: 'wrap'}}

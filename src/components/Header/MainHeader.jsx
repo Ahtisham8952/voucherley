@@ -54,7 +54,7 @@ const MainHeader = () => {
           >
             <Link to="/">
               <Box>
-                <Image src="/logobreeze.svg" alt="img" />
+                <Image h={{base: "48px", md: "66px"}} w={{base: "98px", md: "130px"}} src="/voucherlogo2.png" alt="img" />
               </Box>
             </Link>
             <Box
